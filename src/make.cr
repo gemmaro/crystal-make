@@ -34,6 +34,10 @@ class Make
       @directories << path
     end
 
+    def file(path : Path, source : String, &action : Flow ->)
+      file(path, Path.new(source), action)
+    end
+
     def file(path : Path, source : Path, &action : Flow ->)
       file(path, [source], action)
     end
@@ -42,7 +46,11 @@ class Make
       file(path, sources, action)
     end
 
-    def file(path : Path, sources : Array(Path | String), action : Proc(Flow, Nil))
+    private def file(path : Path, source : Path, action : Proc(Flow, Nil))
+      file(path, [source], action)
+    end
+
+    private def file(path : Path, sources : Array(Path | String), action : Proc(Flow, Nil))
       sources = sources.map { |source| Path.new(source) }
       @files[path] = {sources, action}
     end
