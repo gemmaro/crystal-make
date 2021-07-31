@@ -40,4 +40,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [gemmaro](https://github.com/gemmaro) - creator and maintainer
+* [gemmaro](https://github.com/gemmaro) - creator and maintainer
