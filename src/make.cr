@@ -82,7 +82,7 @@ class Make
     end
 
     private def generate(path : Path)
-      raise "#{path} が存在しません。" unless File.exists?(path)
+      raise "#{path} doesn't exist" unless File.exists?(path)
     end
 
     private def generate(path : Path, sources : Array(Path), &block : Flow ->)
@@ -92,7 +92,7 @@ class Make
     private def generate(path : Path, sources : Array(Path), action)
       return if File.exists?(path)
       action.call(Flow.new(path, sources))
-      raise "#{path} は生成されませんでした。" unless File.exists?(path)
+      raise "#{path} wasn't generated" unless File.exists?(path)
     end
   end
 end
