@@ -1,16 +1,14 @@
-module Make
+class Make
   VERSION = "0.1.0"
 
-  class Make
-    def initialize
-      @tasks = Tasks.new
-      yield @tasks
-    end
+  def initialize
+    @tasks = Tasks.new
+    yield @tasks
+  end
 
-    def run(paths : Array(Path | Array(Path)))
-      paths.flatten.each do |path|
-        @tasks.run(path)
-      end
+  def run(paths : Array(Path | Array(Path)))
+    paths.flatten.each do |path|
+      @tasks.run(path)
     end
   end
 
