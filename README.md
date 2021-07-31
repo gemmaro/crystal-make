@@ -1,6 +1,8 @@
 # make
 
-TODO: Write a description here
+NOTE: This library is *highly* experimental.
+
+Rake-like task runner library.
 
 ## Installation
 
@@ -9,7 +11,7 @@ TODO: Write a description here
    ```yaml
    dependencies:
      make:
-       github: your-github-user/make
+       github: gemmaro/make
    ```
 
 2. Run `shards install`
@@ -28,7 +30,7 @@ TODO: Write development instructions here
 
 ## Contributing
 
-1. Fork it (<https://github.com/your-github-user/make/fork>)
+1. Fork it (<https://github.com/gemmaro/make/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -36,4 +38,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [gemmaro](https://github.com/your-github-user) - creator and maintainer
+- [gemmaro](https://github.com/gemmaro) - creator and maintainer

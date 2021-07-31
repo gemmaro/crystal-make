@@ -1,6 +1,8 @@
 name: make
 version: 0.1.0
 
+description: Rake-like task runner library.
+
 authors:
   - gemmaro <gemmaro.dev@gmail.com>
 
