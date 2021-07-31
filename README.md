@@ -1,5 +1,7 @@
 # make
 
+[![GitHub release](https://img.shields.io/github/release/gemmaro/crystal-make.svg)](https://github.com/gemmaro/crystal-make/releases)
+
 NOTE: This library is *highly* experimental.
 
 Rake-like task runner library.
