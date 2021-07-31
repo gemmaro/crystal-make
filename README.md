@@ -11,7 +11,7 @@ Rake-like task runner library.
    ```yaml
    dependencies:
      make:
-       github: gemmaro/make
+       github: gemmaro/crystal-make
    ```
 
 2. Run `shards install`
@@ -30,7 +30,7 @@ TODO: Write development instructions here
 
 ## Contributing
 
-1. Fork it (<https://github.com/gemmaro/make/fork>)
+1. Fork it (<https://github.com/gemmaro/crystal-make/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
