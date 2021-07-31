@@ -8,7 +8,7 @@ Rake-like task runner library.
 
 ## Installation
 
-1. Add the dependency to your `shard.yml`:
+* Add the dependency to your `shard.yml`:
 
 ```yaml
 dependencies:
@@ -16,7 +16,7 @@ dependencies:
     github: gemmaro/crystal-make
 ```
 
-1. Run `shards install`
+* Run `shards install`
 
 ## Usage
 
