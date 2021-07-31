@@ -34,24 +34,15 @@ class Make
       @directories << path
     end
 
-    def file(path : Path, source : String, &action : Flow ->)
-      file(path, Path.new(source), action)
-    end
-
-    def file(path : Path, source : Path, &action : Flow ->)
-      file(path, [source], action)
+    def file(path : Path, source : Path | String, &action : Flow ->)
+      file(path, [Path.new(source)], action)
     end
 
     def file(path : Path, sources : Array(Path | String), &action : Flow ->)
-      file(path, sources, action)
+      file(path, sources.map { |source| Path.new(source) }, action)
     end
 
-    private def file(path : Path, source : Path, action : Proc(Flow, Nil))
-      file(path, [source], action)
-    end
-
-    private def file(path : Path, sources : Array(Path | String), action : Proc(Flow, Nil))
-      sources = sources.map { |source| Path.new(source) }
+    private def file(path : Path, sources : Array(Path), action : Proc(Flow, Nil))
       @files[path] = {sources, action}
     end
 
