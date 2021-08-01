@@ -40,20 +40,20 @@ class Make
       @directories << path
     end
 
-    def file(path : Path, &action : Flow ->)
+    def file(path : Path | String, &action : Flow ->)
       file(path, Array(Path).new, action)
     end
 
     def file(path : Path | String, source : Path | String, &action : Flow ->)
-      file(Path.new(path), [Path.new(source)], action)
+      file(path, [Path.new(source)], action)
     end
 
-    def file(path : Path, sources : Array(Path | String), &action : Flow ->)
+    def file(path : Path | String, sources : Array(Path | String), &action : Flow ->)
       file(path, sources.map { |source| Path.new(source) }, action)
     end
 
-    private def file(path : Path, sources : Array(Path), action : Proc(Flow, Nil))
-      @files[path] = {sources, action}
+    private def file(path : Path | String, sources : Array(Path), action : Proc(Flow, Nil))
+      @files[Path.new(path)] = {sources, action}
     end
 
     def namespace(_name : Symbol)
