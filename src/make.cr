@@ -12,8 +12,8 @@ class Make
     run([path])
   end
 
-  def run(paths : Array(Path | Array(Path)))
-    paths.flatten.each do |path|
+  def run(paths : Array(Path | Array(Path) | String))
+    paths.flatten.map { |path| Path.new(path) }.each do |path|
       @tasks.run(path)
     end
   end
@@ -44,8 +44,8 @@ class Make
       file(path, Array(Path).new, action)
     end
 
-    def file(path : Path, source : Path | String, &action : Flow ->)
-      file(path, [Path.new(source)], action)
+    def file(path : Path | String, source : Path | String, &action : Flow ->)
+      file(Path.new(path), [Path.new(source)], action)
     end
 
     def file(path : Path, sources : Array(Path | String), &action : Flow ->)
