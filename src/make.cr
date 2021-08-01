@@ -9,7 +9,7 @@ class Make
   end
 
   def run(path : Path)
-    run([path])
+    @tasks.run(path)
   end
 
   def run(paths : Array(Path | Array(Path) | String))
