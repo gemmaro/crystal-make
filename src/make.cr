@@ -1,9 +1,15 @@
+require "file_utils"
+
 class Make
   VERSION = "0.1.0"
 
   def initialize
     @tasks = Tasks.new
     yield @tasks
+  end
+
+  def run(path : Path)
+    run([path])
   end
 
   def run(paths : Array(Path | Array(Path)))
@@ -32,6 +38,10 @@ class Make
 
     def directory(path : Path)
       @directories << path
+    end
+
+    def file(path : Path, &action : Flow ->)
+      file(path, Array(Path).new, action)
     end
 
     def file(path : Path, source : Path | String, &action : Flow ->)
