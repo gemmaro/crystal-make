@@ -18,6 +18,10 @@ class Make
     end
   end
 
+  def run(name : Symbol)
+    @tasks.run(name)
+  end
+
   class Flow
     getter target : Path
     getter sources : Array(Path)
@@ -34,6 +38,7 @@ class Make
     def initialize
       @directories = Set(Path).new
       @files = Hash(Path, Tuple(Array(Path), Proc(Flow, Nil))).new
+      @commands = Hash(Symbol, Proc(Nil)).new
     end
 
     def directory(path : Path)
@@ -56,6 +61,10 @@ class Make
       @files[Path.new(path)] = {sources, action}
     end
 
+    def command(name : Symbol, &action)
+      @commands[name] = action
+    end
+
     def namespace(_name : Symbol)
       yield
     end
@@ -74,6 +83,10 @@ class Make
       else
         generate(path)
       end
+    end
+
+    protected def run(name : Symbol)
+      @commands[name].call
     end
 
     private def mkdir(path : Path)
