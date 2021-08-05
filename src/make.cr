@@ -97,6 +97,7 @@ class Make
       @commands[name] = action
     end
 
+    # *path* will be cleaned.
     def clean(path : String | Path)
       @cleans << Path.new(path)
     end
