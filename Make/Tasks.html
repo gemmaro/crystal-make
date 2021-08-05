@@ -113,7 +113,7 @@
   </h2>
   
     
-      <a href="https://github.com/gemmaro/crystal-make/blob/23dc7b536a6a3465012a190597e0ab5d48f44a14/src/make.cr#L54" target="_blank">
+      <a href="https://github.com/gemmaro/crystal-make/blob/94f3f51fee42fe6e45802a2e243cd2f7a52130e8/src/make.cr#L54" target="_blank">
         make.cr
       </a>
     
@@ -139,6 +139,13 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
+        <a href="#clean(path:String%7CPath)-instance-method" class="signature"><strong>#clean</strong>(path : String | Path)</a>
+        
+          <div class="summary"><p><em>path</em> will be cleaned.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#command(name:Symbol,prerequisite:Symbol,&action)-instance-method" class="signature"><strong>#command</strong>(name : Symbol, prerequisite : Symbol, &action)</a>
         
           <div class="summary"><p>Add a command task, which will run <em>action</em> when called with <em>name</em>, after <em>prerequisite</em> runned.</p></div>
@@ -153,7 +160,7 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#directory(path:Path)-instance-method" class="signature"><strong>#directory</strong>(path : Path)</a>
+        <a href="#directory(path:Path%7CString)-instance-method" class="signature"><strong>#directory</strong>(path : Path | String)</a>
         
           <div class="summary"><p>Add a directory task, a special file task which just make directory.</p></div>
         
@@ -231,6 +238,27 @@
     Instance Method Detail
   </h2>
   
+    <div class="entry-detail" id="clean(path:String|Path)-instance-method">
+      <div class="signature">
+        
+        def <strong>clean</strong>(path : String | Path)
+
+        <a class="method-permalink" href="#clean(path:String%7CPath)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><em>path</em> will be cleaned.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/gemmaro/crystal-make/blob/94f3f51fee42fe6e45802a2e243cd2f7a52130e8/src/make.cr#L101" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="command(name:Symbol,prerequisite:Symbol,&amp;action)-instance-method">
       <div class="signature">
         
@@ -247,7 +275,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/23dc7b536a6a3465012a190597e0ab5d48f44a14/src/make.cr#L86" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/94f3f51fee42fe6e45802a2e243cd2f7a52130e8/src/make.cr#L87" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -268,17 +296,17 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/23dc7b536a6a3465012a190597e0ab5d48f44a14/src/make.cr#L91" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/94f3f51fee42fe6e45802a2e243cd2f7a52130e8/src/make.cr#L92" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="directory(path:Path)-instance-method">
+    <div class="entry-detail" id="directory(path:Path|String)-instance-method">
       <div class="signature">
         
-        def <strong>directory</strong>(path : Path)
+        def <strong>directory</strong>(path : Path | String)
 
-        <a class="method-permalink" href="#directory(path:Path)-instance-method">#</a>
+        <a class="method-permalink" href="#directory(path:Path%7CString)-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -289,7 +317,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/23dc7b536a6a3465012a190597e0ab5d48f44a14/src/make.cr#L62" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/94f3f51fee42fe6e45802a2e243cd2f7a52130e8/src/make.cr#L63" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -310,7 +338,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/23dc7b536a6a3465012a190597e0ab5d48f44a14/src/make.cr#L72" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/94f3f51fee42fe6e45802a2e243cd2f7a52130e8/src/make.cr#L73" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -331,7 +359,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/23dc7b536a6a3465012a190597e0ab5d48f44a14/src/make.cr#L77" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/94f3f51fee42fe6e45802a2e243cd2f7a52130e8/src/make.cr#L78" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -352,7 +380,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/23dc7b536a6a3465012a190597e0ab5d48f44a14/src/make.cr#L67" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/94f3f51fee42fe6e45802a2e243cd2f7a52130e8/src/make.cr#L68" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -376,7 +404,7 @@ Currently not supported and just exists for grouping.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/23dc7b536a6a3465012a190597e0ab5d48f44a14/src/make.cr#L99" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/94f3f51fee42fe6e45802a2e243cd2f7a52130e8/src/make.cr#L109" target="_blank">View source</a>]
         
       </div>
     </div>
