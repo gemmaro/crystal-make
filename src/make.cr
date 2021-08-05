@@ -55,7 +55,7 @@ class Make
     protected def initialize
       @directories = Set(Path).new
       @files = Hash(Path, Tuple(Array(Path), Proc(Flow, Nil))).new
-      @commands = Hash(Symbol, Proc(Nil)).new
+      @commands = Hash(Symbol, Proc(Nil) | Tuple(Symbol, Proc(Nil))).new
     end
 
     # Add a directory task, a special file task which just make directory.
@@ -80,6 +80,11 @@ class Make
 
     private def file(path : Path | String, sources : Array(Path), action : Proc(Flow, Nil))
       @files[Path.new(path)] = {sources, action}
+    end
+
+    # Add a command task, which will run *action* when called with *name*, after *prerequisite* runned.
+    def command(name : Symbol, prerequisite : Symbol, &action)
+      @commands[name] = {prerequisite, action}
     end
 
     # Add a command task, which will run *action* when called with *name*.
@@ -112,7 +117,15 @@ class Make
     end
 
     protected def run(name : Symbol)
-      @commands[name].call
+      command = @commands[name]
+
+      if command.is_a?(Proc)
+        command.call
+      else
+        prerequisite, action = command
+        run(prerequisite)
+        action.call
+      end
     end
 
     private def mkdir(path : Path)
