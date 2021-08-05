@@ -56,6 +56,7 @@ class Make
       @directories = Set(Path).new
       @files = Hash(Path, Tuple(Array(Path), Proc(Flow, Nil))).new
       @commands = Hash(Symbol, Proc(Nil) | Tuple(Symbol, Proc(Nil))).new
+      @cleans = Set(Path).new
     end
 
     # Add a directory task, a special file task which just make directory.
@@ -89,7 +90,15 @@ class Make
 
     # Add a command task, which will run *action* when called with *name*.
     def command(name : Symbol, &action)
+      if name == :clean
+        raise "clean command is built-in command and cannot be overridden"
+      end
+
       @commands[name] = action
+    end
+
+    def clean(path : String | Path)
+      @cleans << Path.new(path)
     end
 
     # TODO: Prefixes inner commands' name with *name*.
@@ -117,6 +126,14 @@ class Make
     end
 
     protected def run(name : Symbol)
+      if name == :clean
+        @cleans.each do |clean|
+          FileUtils.rm_rf(clean)
+        end
+
+        return
+      end
+
       command = @commands[name]
 
       if command.is_a?(Proc)
