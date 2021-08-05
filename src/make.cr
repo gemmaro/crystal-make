@@ -60,8 +60,8 @@ class Make
     end
 
     # Add a directory task, a special file task which just make directory.
-    def directory(path : Path)
-      @directories << path
+    def directory(path : Path | String)
+      @directories << Path.new(path)
     end
 
     # Add a file task, which will run *action* for generating *path*.
