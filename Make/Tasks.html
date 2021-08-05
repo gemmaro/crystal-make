@@ -113,7 +113,7 @@
   </h2>
   
     
-      <a href="https://github.com/gemmaro/crystal-make/blob/a5a4e752f424183ec03c13b7c362d6a90f443c7f/src/make.cr#L37" target="_blank">
+      <a href="https://github.com/gemmaro/crystal-make/blob/23dc7b536a6a3465012a190597e0ab5d48f44a14/src/make.cr#L54" target="_blank">
         make.cr
       </a>
     
@@ -123,23 +123,6 @@
 
 
 
-
-  <h2>
-    <a id="constructors" class="anchor" href="#constructors">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructors
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#new-class-method" class="signature"><strong>.new</strong></a>
-        
-      </li>
-    
-  </ul>
 
 
 
@@ -156,32 +139,51 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
+        <a href="#command(name:Symbol,prerequisite:Symbol,&action)-instance-method" class="signature"><strong>#command</strong>(name : Symbol, prerequisite : Symbol, &action)</a>
+        
+          <div class="summary"><p>Add a command task, which will run <em>action</em> when called with <em>name</em>, after <em>prerequisite</em> runned.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#command(name:Symbol,&action)-instance-method" class="signature"><strong>#command</strong>(name : Symbol, &action)</a>
+        
+          <div class="summary"><p>Add a command task, which will run <em>action</em> when called with <em>name</em>.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#directory(path:Path)-instance-method" class="signature"><strong>#directory</strong>(path : Path)</a>
         
+          <div class="summary"><p>Add a directory task, a special file task which just make directory.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#file(path:Path%7CString,source:Path%7CString,&action:Flow-%3E)-instance-method" class="signature"><strong>#file</strong>(path : Path | String, source : Path | String, &action : Flow -> )</a>
+        
+          <div class="summary"><p>Add a file task, which will run <em>action</em> using <em>source</em> for generating <em>path</em>.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#file(path:Path%7CString,sources:Array(Path%7CString),&action:Flow-%3E)-instance-method" class="signature"><strong>#file</strong>(path : Path | String, sources : Array(Path | String), &action : Flow -> )</a>
         
+          <div class="summary"><p>Add a file task, which will run <em>action</em> using <em>sources</em> for generating <em>path</em>.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#file(path:Path%7CString,&action:Flow-%3E)-instance-method" class="signature"><strong>#file</strong>(path : Path | String, &action : Flow -> )</a>
         
+          <div class="summary"><p>Add a file task, which will run <em>action</em> for generating <em>path</em>.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#namespace(_name:Symbol,&)-instance-method" class="signature"><strong>#namespace</strong>(_name : Symbol, &)</a>
+        
+          <div class="summary"><p><span class="flag orange">TODO</span>  Prefixes inner commands' name with <em>name</em>.</p></div>
         
       </li>
     
@@ -216,32 +218,6 @@
 </div>
 
 
-  <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructor Detail
-  </h2>
-  
-    <div class="entry-detail" id="new-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>
-
-        <a class="method-permalink" href="#new-class-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/gemmaro/crystal-make/blob/a5a4e752f424183ec03c13b7c362d6a90f443c7f/src/make.cr#L38" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-
 
 
 
@@ -255,6 +231,27 @@
     Instance Method Detail
   </h2>
   
+    <div class="entry-detail" id="command(name:Symbol,prerequisite:Symbol,&amp;action)-instance-method">
+      <div class="signature">
+        
+        def <strong>command</strong>(name : Symbol, prerequisite : Symbol, &action)
+
+        <a class="method-permalink" href="#command(name:Symbol,prerequisite:Symbol,&action)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Add a command task, which will run <em>action</em> when called with <em>name</em>, after <em>prerequisite</em> runned.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/gemmaro/crystal-make/blob/23dc7b536a6a3465012a190597e0ab5d48f44a14/src/make.cr#L86" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="command(name:Symbol,&amp;action)-instance-method">
       <div class="signature">
         
@@ -263,10 +260,15 @@
         <a class="method-permalink" href="#command(name:Symbol,&action)-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Add a command task, which will run <em>action</em> when called with <em>name</em>.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/a5a4e752f424183ec03c13b7c362d6a90f443c7f/src/make.cr#L64" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/23dc7b536a6a3465012a190597e0ab5d48f44a14/src/make.cr#L91" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -279,10 +281,15 @@
         <a class="method-permalink" href="#directory(path:Path)-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Add a directory task, a special file task which just make directory.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/a5a4e752f424183ec03c13b7c362d6a90f443c7f/src/make.cr#L44" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/23dc7b536a6a3465012a190597e0ab5d48f44a14/src/make.cr#L62" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -295,10 +302,15 @@
         <a class="method-permalink" href="#file(path:Path%7CString,source:Path%7CString,&action:Flow-%3E)-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Add a file task, which will run <em>action</em> using <em>source</em> for generating <em>path</em>.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/a5a4e752f424183ec03c13b7c362d6a90f443c7f/src/make.cr#L52" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/23dc7b536a6a3465012a190597e0ab5d48f44a14/src/make.cr#L72" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -311,10 +323,15 @@
         <a class="method-permalink" href="#file(path:Path%7CString,sources:Array(Path%7CString),&action:Flow-%3E)-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Add a file task, which will run <em>action</em> using <em>sources</em> for generating <em>path</em>.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/a5a4e752f424183ec03c13b7c362d6a90f443c7f/src/make.cr#L56" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/23dc7b536a6a3465012a190597e0ab5d48f44a14/src/make.cr#L77" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -327,10 +344,15 @@
         <a class="method-permalink" href="#file(path:Path%7CString,&action:Flow-%3E)-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Add a file task, which will run <em>action</em> for generating <em>path</em>.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/a5a4e752f424183ec03c13b7c362d6a90f443c7f/src/make.cr#L48" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/23dc7b536a6a3465012a190597e0ab5d48f44a14/src/make.cr#L67" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -343,10 +365,18 @@
         <a class="method-permalink" href="#namespace(_name:Symbol,&)-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p><span class="flag orange">TODO</span>  Prefixes inner commands' name with <em>name</em>.</p>
+
+<p><span class="flag purple">NOTE</span>  To be implemented.
+Currently not supported and just exists for grouping.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/a5a4e752f424183ec03c13b7c362d6a90f443c7f/src/make.cr#L68" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/23dc7b536a6a3465012a190597e0ab5d48f44a14/src/make.cr#L99" target="_blank">View source</a>]
         
       </div>
     </div>

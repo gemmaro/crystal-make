@@ -113,7 +113,7 @@
   </h2>
   
     
-      <a href="https://github.com/gemmaro/crystal-make/blob/a5a4e752f424183ec03c13b7c362d6a90f443c7f/src/make.cr#L3" target="_blank">
+      <a href="https://github.com/gemmaro/crystal-make/blob/23dc7b536a6a3465012a190597e0ab5d48f44a14/src/make.cr#L3" target="_blank">
         make.cr
       </a>
     
@@ -156,6 +156,8 @@
       <li class="entry-summary">
         <a href="#new(&)-class-method" class="signature"><strong>.new</strong>(&)</a>
         
+          <div class="summary"><p>Defines all tasks in a block.</p></div>
+        
       </li>
     
   </ul>
@@ -177,15 +179,21 @@
       <li class="entry-summary">
         <a href="#run(path:Path)-instance-method" class="signature"><strong>#run</strong>(path : Path)</a>
         
+          <div class="summary"><p>Start generating <em>path</em>.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#run(paths:Array(Path%7CArray(Path)%7CString))-instance-method" class="signature"><strong>#run</strong>(paths : Array(Path | Array(Path) | String))</a>
         
+          <div class="summary"><p>Start generating all <em>paths</em>.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#run(name:Symbol)-instance-method" class="signature"><strong>#run</strong>(name : Symbol)</a>
+        
+          <div class="summary"><p>Start running command of given <em>name</em>.</p></div>
         
       </li>
     
@@ -237,10 +245,23 @@
         <a class="method-permalink" href="#new(&)-class-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Defines all tasks in a block.</p>
+
+<p>The block takes <code><a href="Make/Tasks.html">Tasks</a></code> as an argument:</p>
+
+<pre><code class="language-crystal"><span class="t">Make</span>.<span class="k">new</span> <span class="k">do</span> <span class="o">|</span>a<span class="o">|</span>
+  a.command <span class="n">:hello</span> <span class="k">do</span>
+    puts <span class="n">:world</span>
+  <span class="k">end</span>
+<span class="k">end</span>.run(<span class="n">:hello</span>)</code></pre>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/a5a4e752f424183ec03c13b7c362d6a90f443c7f/src/make.cr#L6" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/23dc7b536a6a3465012a190597e0ab5d48f44a14/src/make.cr#L17" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -267,10 +288,15 @@
         <a class="method-permalink" href="#run(path:Path)-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Start generating <em>path</em>.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/a5a4e752f424183ec03c13b7c362d6a90f443c7f/src/make.cr#L11" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/23dc7b536a6a3465012a190597e0ab5d48f44a14/src/make.cr#L23" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -283,10 +309,15 @@
         <a class="method-permalink" href="#run(paths:Array(Path%7CArray(Path)%7CString))-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Start generating all <em>paths</em>.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/a5a4e752f424183ec03c13b7c362d6a90f443c7f/src/make.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/23dc7b536a6a3465012a190597e0ab5d48f44a14/src/make.cr#L28" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -299,10 +330,15 @@
         <a class="method-permalink" href="#run(name:Symbol)-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Start running command of given <em>name</em>.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/a5a4e752f424183ec03c13b7c362d6a90f443c7f/src/make.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/23dc7b536a6a3465012a190597e0ab5d48f44a14/src/make.cr#L35" target="_blank">View source</a>]
         
       </div>
     </div>
