@@ -61,6 +61,11 @@
       
     </li>
   
+  <li class=" " data-id="make/Make/PathLike" data-name="make::pathlike">
+      <a href="../Make/PathLike.html">PathLike</a>
+      
+    </li>
+  
   <li class=" current" data-id="make/Make/Tasks" data-name="make::tasks">
       <a href="../Make/Tasks.html">Tasks</a>
       
@@ -113,7 +118,7 @@
   </h2>
   
     
-      <a href="https://github.com/gemmaro/crystal-make/blob/94f3f51fee42fe6e45802a2e243cd2f7a52130e8/src/make.cr#L54" target="_blank">
+      <a href="https://github.com/gemmaro/crystal-make/blob/7222de6c1d5d77240aa207ffbd58a12162d4fc84/src/make.cr#L56" target="_blank">
         make.cr
       </a>
     
@@ -139,7 +144,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#clean(path:String%7CPath)-instance-method" class="signature"><strong>#clean</strong>(path : String | Path)</a>
+        <a href="#clean(path:PathLike)-instance-method" class="signature"><strong>#clean</strong>(path : PathLike)</a>
         
           <div class="summary"><p><em>path</em> will be cleaned.</p></div>
         
@@ -160,28 +165,28 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#directory(path:Path%7CString)-instance-method" class="signature"><strong>#directory</strong>(path : Path | String)</a>
+        <a href="#directory(path:PathLike)-instance-method" class="signature"><strong>#directory</strong>(path : PathLike)</a>
         
           <div class="summary"><p>Add a directory task, a special file task which just make directory.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#file(path:Path%7CString,source:Path%7CString,&action:Flow-%3E)-instance-method" class="signature"><strong>#file</strong>(path : Path | String, source : Path | String, &action : Flow -> )</a>
+        <a href="#file(path:PathLike,source:PathLike,&action:Flow-%3E)-instance-method" class="signature"><strong>#file</strong>(path : PathLike, source : PathLike, &action : Flow -> )</a>
         
           <div class="summary"><p>Add a file task, which will run <em>action</em> using <em>source</em> for generating <em>path</em>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#file(path:Path%7CString,sources:Array(Path%7CString),&action:Flow-%3E)-instance-method" class="signature"><strong>#file</strong>(path : Path | String, sources : Array(Path | String), &action : Flow -> )</a>
+        <a href="#file(path:PathLike,sources:Array(PathLike),&action:Flow-%3E)-instance-method" class="signature"><strong>#file</strong>(path : PathLike, sources : Array(PathLike), &action : Flow -> )</a>
         
           <div class="summary"><p>Add a file task, which will run <em>action</em> using <em>sources</em> for generating <em>path</em>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#file(path:Path%7CString,&action:Flow-%3E)-instance-method" class="signature"><strong>#file</strong>(path : Path | String, &action : Flow -> )</a>
+        <a href="#file(path:PathLike,&action:Flow-%3E)-instance-method" class="signature"><strong>#file</strong>(path : PathLike, &action : Flow -> )</a>
         
           <div class="summary"><p>Add a file task, which will run <em>action</em> for generating <em>path</em>.</p></div>
         
@@ -238,12 +243,12 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="clean(path:String|Path)-instance-method">
+    <div class="entry-detail" id="clean(path:PathLike)-instance-method">
       <div class="signature">
         
-        def <strong>clean</strong>(path : String | Path)
+        def <strong>clean</strong>(path : <a href="../Make/PathLike.html">PathLike</a>)
 
-        <a class="method-permalink" href="#clean(path:String%7CPath)-instance-method">#</a>
+        <a class="method-permalink" href="#clean(path:PathLike)-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -254,7 +259,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/94f3f51fee42fe6e45802a2e243cd2f7a52130e8/src/make.cr#L101" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/7222de6c1d5d77240aa207ffbd58a12162d4fc84/src/make.cr#L103" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -275,7 +280,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/94f3f51fee42fe6e45802a2e243cd2f7a52130e8/src/make.cr#L87" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/7222de6c1d5d77240aa207ffbd58a12162d4fc84/src/make.cr#L89" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -296,17 +301,17 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/94f3f51fee42fe6e45802a2e243cd2f7a52130e8/src/make.cr#L92" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/7222de6c1d5d77240aa207ffbd58a12162d4fc84/src/make.cr#L94" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="directory(path:Path|String)-instance-method">
+    <div class="entry-detail" id="directory(path:PathLike)-instance-method">
       <div class="signature">
         
-        def <strong>directory</strong>(path : Path | String)
+        def <strong>directory</strong>(path : <a href="../Make/PathLike.html">PathLike</a>)
 
-        <a class="method-permalink" href="#directory(path:Path%7CString)-instance-method">#</a>
+        <a class="method-permalink" href="#directory(path:PathLike)-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -317,17 +322,17 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/94f3f51fee42fe6e45802a2e243cd2f7a52130e8/src/make.cr#L63" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/7222de6c1d5d77240aa207ffbd58a12162d4fc84/src/make.cr#L65" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="file(path:Path|String,source:Path|String,&amp;action:Flow-&gt;)-instance-method">
+    <div class="entry-detail" id="file(path:PathLike,source:PathLike,&amp;action:Flow-&gt;)-instance-method">
       <div class="signature">
         
-        def <strong>file</strong>(path : Path | String, source : Path | String, &action : <a href="../Make/Flow.html">Flow</a> -> )
+        def <strong>file</strong>(path : <a href="../Make/PathLike.html">PathLike</a>, source : <a href="../Make/PathLike.html">PathLike</a>, &action : <a href="../Make/Flow.html">Flow</a> -> )
 
-        <a class="method-permalink" href="#file(path:Path%7CString,source:Path%7CString,&action:Flow-%3E)-instance-method">#</a>
+        <a class="method-permalink" href="#file(path:PathLike,source:PathLike,&action:Flow-%3E)-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -338,17 +343,17 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/94f3f51fee42fe6e45802a2e243cd2f7a52130e8/src/make.cr#L73" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/7222de6c1d5d77240aa207ffbd58a12162d4fc84/src/make.cr#L75" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="file(path:Path|String,sources:Array(Path|String),&amp;action:Flow-&gt;)-instance-method">
+    <div class="entry-detail" id="file(path:PathLike,sources:Array(PathLike),&amp;action:Flow-&gt;)-instance-method">
       <div class="signature">
         
-        def <strong>file</strong>(path : Path | String, sources : Array(Path | String), &action : <a href="../Make/Flow.html">Flow</a> -> )
+        def <strong>file</strong>(path : <a href="../Make/PathLike.html">PathLike</a>, sources : Array(<a href="../Make/PathLike.html">PathLike</a>), &action : <a href="../Make/Flow.html">Flow</a> -> )
 
-        <a class="method-permalink" href="#file(path:Path%7CString,sources:Array(Path%7CString),&action:Flow-%3E)-instance-method">#</a>
+        <a class="method-permalink" href="#file(path:PathLike,sources:Array(PathLike),&action:Flow-%3E)-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -359,17 +364,17 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/94f3f51fee42fe6e45802a2e243cd2f7a52130e8/src/make.cr#L78" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/7222de6c1d5d77240aa207ffbd58a12162d4fc84/src/make.cr#L80" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="file(path:Path|String,&amp;action:Flow-&gt;)-instance-method">
+    <div class="entry-detail" id="file(path:PathLike,&amp;action:Flow-&gt;)-instance-method">
       <div class="signature">
         
-        def <strong>file</strong>(path : Path | String, &action : <a href="../Make/Flow.html">Flow</a> -> )
+        def <strong>file</strong>(path : <a href="../Make/PathLike.html">PathLike</a>, &action : <a href="../Make/Flow.html">Flow</a> -> )
 
-        <a class="method-permalink" href="#file(path:Path%7CString,&action:Flow-%3E)-instance-method">#</a>
+        <a class="method-permalink" href="#file(path:PathLike,&action:Flow-%3E)-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -380,7 +385,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/94f3f51fee42fe6e45802a2e243cd2f7a52130e8/src/make.cr#L68" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/7222de6c1d5d77240aa207ffbd58a12162d4fc84/src/make.cr#L70" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -404,7 +409,7 @@ Currently not supported and just exists for grouping.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/94f3f51fee42fe6e45802a2e243cd2f7a52130e8/src/make.cr#L109" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/7222de6c1d5d77240aa207ffbd58a12162d4fc84/src/make.cr#L111" target="_blank">View source</a>]
         
       </div>
     </div>
