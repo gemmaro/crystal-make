@@ -38,6 +38,14 @@ class Make
     @tasks.run(name)
   end
 
+  class Error < Exception; end
+
+  class BuiltInCommandNameError < Error; end
+
+  class PathNotFoundError < Error; end
+
+  class NotGeneratedError < Error; end
+
   class Flow
     getter target : Path
     getter sources : Array(Path)
@@ -93,7 +101,7 @@ class Make
     # Add a command task, which will run *action* when called with *name*.
     def command(name : Symbol, &action)
       if name == :clean
-        raise "clean command is built-in command and cannot be overridden"
+        raise BuiltInCommandNameError.new("clean")
       end
 
       @commands[name] = action
@@ -155,7 +163,7 @@ class Make
     end
 
     private def generate(path : Path)
-      raise "#{path} doesn't exist" unless File.exists?(path)
+      raise PathNotFoundError.new(path.to_s) unless File.exists?(path)
     end
 
     private def generate(path : Path, sources : Array(Path), &block : Flow ->)
@@ -165,7 +173,7 @@ class Make
     private def generate(path : Path, sources : Array(Path), action)
       return if File.exists?(path)
       action.call(Flow.new(path, sources))
-      raise "#{path} wasn't generated" unless File.exists?(path)
+      raise NotGeneratedError.new(path.to_s) unless File.exists?(path)
     end
   end
 end
