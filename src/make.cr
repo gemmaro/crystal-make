@@ -19,13 +19,15 @@ class Make
     yield @tasks
   end
 
+  alias PathLike = Path | String
+
   # Start generating *path*.
-  def run(path : Path)
+  def run(path : PathLike)
     @tasks.run(path)
   end
 
   # Start generating all *paths*.
-  def run(paths : Array(Path | Array(Path) | String))
+  def run(paths : Array(PathLike | Array(PathLike)))
     paths.flatten.map { |path| Path.new(path) }.each do |path|
       @tasks.run(path)
     end
@@ -60,26 +62,26 @@ class Make
     end
 
     # Add a directory task, a special file task which just make directory.
-    def directory(path : Path | String)
+    def directory(path : PathLike)
       @directories << Path.new(path)
     end
 
     # Add a file task, which will run *action* for generating *path*.
-    def file(path : Path | String, &action : Flow ->)
+    def file(path : PathLike, &action : Flow ->)
       file(path, Array(Path).new, action)
     end
 
     # Add a file task, which will run *action* using *source* for generating *path*.
-    def file(path : Path | String, source : Path | String, &action : Flow ->)
+    def file(path : PathLike, source : PathLike, &action : Flow ->)
       file(path, [Path.new(source)], action)
     end
 
     # Add a file task, which will run *action* using *sources* for generating *path*.
-    def file(path : Path | String, sources : Array(Path | String), &action : Flow ->)
+    def file(path : PathLike, sources : Array(PathLike), &action : Flow ->)
       file(path, sources.map { |source| Path.new(source) }, action)
     end
 
-    private def file(path : Path | String, sources : Array(Path), action : Proc(Flow, Nil))
+    private def file(path : PathLike, sources : Array(Path), action : Proc(Flow, Nil))
       @files[Path.new(path)] = {sources, action}
     end
 
@@ -98,7 +100,7 @@ class Make
     end
 
     # *path* will be cleaned.
-    def clean(path : String | Path)
+    def clean(path : PathLike)
       @cleans << Path.new(path)
     end
 
