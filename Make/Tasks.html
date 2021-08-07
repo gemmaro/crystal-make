@@ -138,7 +138,7 @@
   </h2>
   
     
-      <a href="https://github.com/gemmaro/crystal-make/blob/8df9e13dc9aee2dbd6b288451abcc756916adf9d/src/make.cr#L64" target="_blank">
+      <a href="https://github.com/gemmaro/crystal-make/blob/ac5a8908c36f3f1d9aa923b2e2ade06a61f8e829/src/make.cr#L64" target="_blank">
         make.cr
       </a>
     
@@ -167,6 +167,16 @@
         <a href="#clean(path:PathLike)-instance-method" class="signature"><strong>#clean</strong>(path : PathLike)</a>
         
           <div class="summary"><p><em>path</em> will be cleaned.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#command(name:Symbol,prerequisites:Array(Symbol%7CPath%7CString%7CArray(Path%7CString%7CSymbol)),&action)-instance-method" class="signature"><strong>#command</strong>(name : Symbol, prerequisites : Array(Symbol | Path | String | Array(Path | String | Symbol)), &action)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#command(name:Symbol,prerequisite:PathLike,&action)-instance-method" class="signature"><strong>#command</strong>(name : Symbol, prerequisite : PathLike, &action)</a>
         
       </li>
     
@@ -279,7 +289,39 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/8df9e13dc9aee2dbd6b288451abcc756916adf9d/src/make.cr#L111" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/ac5a8908c36f3f1d9aa923b2e2ade06a61f8e829/src/make.cr#L119" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="command(name:Symbol,prerequisites:Array(Symbol|Path|String|Array(Path|String|Symbol)),&amp;action)-instance-method">
+      <div class="signature">
+        
+        def <strong>command</strong>(name : Symbol, prerequisites : Array(Symbol | Path | String | Array(Path | String | Symbol)), &action)
+
+        <a class="method-permalink" href="#command(name:Symbol,prerequisites:Array(Symbol%7CPath%7CString%7CArray(Path%7CString%7CSymbol)),&action)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/gemmaro/crystal-make/blob/ac5a8908c36f3f1d9aa923b2e2ade06a61f8e829/src/make.cr#L96" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="command(name:Symbol,prerequisite:PathLike,&amp;action)-instance-method">
+      <div class="signature">
+        
+        def <strong>command</strong>(name : Symbol, prerequisite : <a href="../Make/PathLike.html">PathLike</a>, &action)
+
+        <a class="method-permalink" href="#command(name:Symbol,prerequisite:PathLike,&action)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/gemmaro/crystal-make/blob/ac5a8908c36f3f1d9aa923b2e2ade06a61f8e829/src/make.cr#L100" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -300,7 +342,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/8df9e13dc9aee2dbd6b288451abcc756916adf9d/src/make.cr#L97" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/ac5a8908c36f3f1d9aa923b2e2ade06a61f8e829/src/make.cr#L105" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -321,7 +363,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/8df9e13dc9aee2dbd6b288451abcc756916adf9d/src/make.cr#L102" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/ac5a8908c36f3f1d9aa923b2e2ade06a61f8e829/src/make.cr#L110" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -342,7 +384,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/8df9e13dc9aee2dbd6b288451abcc756916adf9d/src/make.cr#L73" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/ac5a8908c36f3f1d9aa923b2e2ade06a61f8e829/src/make.cr#L73" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -363,7 +405,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/8df9e13dc9aee2dbd6b288451abcc756916adf9d/src/make.cr#L83" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/ac5a8908c36f3f1d9aa923b2e2ade06a61f8e829/src/make.cr#L83" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -384,7 +426,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/8df9e13dc9aee2dbd6b288451abcc756916adf9d/src/make.cr#L88" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/ac5a8908c36f3f1d9aa923b2e2ade06a61f8e829/src/make.cr#L88" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -405,7 +447,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/8df9e13dc9aee2dbd6b288451abcc756916adf9d/src/make.cr#L78" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/ac5a8908c36f3f1d9aa923b2e2ade06a61f8e829/src/make.cr#L78" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -429,7 +471,7 @@ Currently not supported and just exists for grouping.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/8df9e13dc9aee2dbd6b288451abcc756916adf9d/src/make.cr#L119" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/ac5a8908c36f3f1d9aa923b2e2ade06a61f8e829/src/make.cr#L127" target="_blank">View source</a>]
         
       </div>
     </div>
