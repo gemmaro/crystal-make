@@ -123,6 +123,10 @@ class Make
       @commands[name] = action
     end
 
+    def clean(paths : PathsLike)
+      @cleans += paths.map { |p| Path.new(p) }
+    end
+
     # *path* will be cleaned.
     def clean(path : PathLike)
       @cleans << Path.new(path)
