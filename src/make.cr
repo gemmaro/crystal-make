@@ -97,9 +97,13 @@ class Make
       @commands[name] = {prerequisites.flatten.map { |p| p.is_a?(Symbol) ? p : Path.new(p) }, action}
     end
 
+    def command(name : Symbol, prerequisite : PathLike, &action)
+      @commands[name] = {Path.new(prerequisite), action}
+    end
+
     # Add a command task, which will run *action* when called with *name*, after *prerequisite* runned.
-    def command(name : Symbol, prerequisite : Symbol | Path | String, &action)
-      @commands[name] = {prerequisite.is_a?(Symbol) ? prerequisite : Path.new(prerequisite), action}
+    def command(name : Symbol, prerequisite : Symbol, &action)
+      @commands[name] = {prerequisite, action}
     end
 
     # Add a command task, which will run *action* when called with *name*.
