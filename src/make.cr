@@ -65,7 +65,7 @@ class Make
     protected def initialize
       @directories = Set(Path).new
       @files = Hash(Path, Tuple(Array(Path), Proc(Flow, Nil))).new
-      @commands = Hash(Symbol, Proc(Nil) | Tuple(Symbol, Proc(Nil))).new
+      @commands = Hash(Symbol, Proc(Nil) | Tuple(Symbol | Path | Array(Symbol | Path), Proc(Nil))).new
       @cleans = Set(Path).new
     end
 
@@ -93,9 +93,13 @@ class Make
       @files[Path.new(path)] = {sources, action}
     end
 
+    def command(name : Symbol, prerequisites : Array(Symbol | Path | String | Array(Path | String | Symbol)), &action)
+      @commands[name] = {prerequisites.flatten.map { |p| p.is_a?(Symbol) ? p : Path.new(p) }, action}
+    end
+
     # Add a command task, which will run *action* when called with *name*, after *prerequisite* runned.
-    def command(name : Symbol, prerequisite : Symbol, &action)
-      @commands[name] = {prerequisite, action}
+    def command(name : Symbol, prerequisite : Symbol | Path | String, &action)
+      @commands[name] = {prerequisite.is_a?(Symbol) ? prerequisite : Path.new(prerequisite), action}
     end
 
     # Add a command task, which will run *action* when called with *name*.
@@ -150,8 +154,17 @@ class Make
       if command.is_a?(Proc)
         command.call
       else
-        prerequisite, action = command
-        run(prerequisite)
+        prerequisites, action = command
+
+        case prerequisites
+        in Array(Path | Symbol)
+          prerequisites.each do |p|
+            run(p)
+          end
+        in Path, Symbol
+          run(prerequisites)
+        end
+
         action.call
       end
     end
