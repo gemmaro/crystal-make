@@ -9,7 +9,7 @@ class Make
   #
   # ```
   # Make.new do |a|
-  #   a.command :hello do
+  #   a.command :hello do |t|
   #     puts :world
   #   end
   # end.run(:hello)
@@ -19,7 +19,11 @@ class Make
     yield @tasks
   end
 
+  # The types which can be converted to `Path`.
   alias PathLike = Path | String
+
+  # The types which can be converted to `Array(Path)`
+  alias PathsLike = Array(PathLike | PathsLike)
 
   # Start generating *path*.
   def run(path : PathLike)
@@ -27,14 +31,18 @@ class Make
   end
 
   # Start generating all *paths*.
-  def run(paths : Array(PathLike | Array(PathLike)))
+  # The order of running target *paths* is not significant to program.
+  # Currently the order is sequencial but can be non-significant (e.g. parallel) in future.
+  def run(paths : PathsLike)
     paths.flatten.map { |path| Path.new(path) }.each do |path|
       @tasks.run(path)
     end
   end
 
+  alias CommandName = Symbol
+
   # Start running command of given *name*.
-  def run(name : Symbol)
+  def run(name : CommandName)
     @tasks.run(name)
   end
 
