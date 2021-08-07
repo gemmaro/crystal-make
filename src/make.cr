@@ -124,7 +124,7 @@ class Make
     end
 
     def clean(paths : PathsLike)
-      @cleans += paths.map { |p| Path.new(p) }
+      @cleans += paths.flatten.map { |p| Path.new(p) }
     end
 
     # *path* will be cleaned.
