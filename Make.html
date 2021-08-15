@@ -61,6 +61,11 @@
       
     </li>
   
+  <li class=" " data-id="make/Make/CommandName" data-name="make::commandname">
+      <a href="Make/CommandName.html">CommandName</a>
+      
+    </li>
+  
   <li class=" " data-id="make/Make/Error" data-name="make::error">
       <a href="Make/Error.html">Error</a>
       
@@ -83,6 +88,11 @@
   
   <li class=" " data-id="make/Make/PathNotFoundError" data-name="make::pathnotfounderror">
       <a href="Make/PathNotFoundError.html">PathNotFoundError</a>
+      
+    </li>
+  
+  <li class=" " data-id="make/Make/PathsLike" data-name="make::pathslike">
+      <a href="Make/PathsLike.html">PathsLike</a>
       
     </li>
   
@@ -138,7 +148,7 @@
   </h2>
   
     
-      <a href="https://github.com/gemmaro/crystal-make/blob/ac5a8908c36f3f1d9aa923b2e2ade06a61f8e829/src/make.cr#L3" target="_blank">
+      <a href="https://github.com/gemmaro/crystal-make/blob/694c12afd20209e3c0ec124f36da2290ba93f312/src/make.cr#L3" target="_blank">
         make.cr
       </a>
     
@@ -209,14 +219,14 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#run(paths:Array(PathLike%7CArray(PathLike)))-instance-method" class="signature"><strong>#run</strong>(paths : Array(PathLike | Array(PathLike)))</a>
+        <a href="#run(paths:PathsLike)-instance-method" class="signature"><strong>#run</strong>(paths : PathsLike)</a>
         
           <div class="summary"><p>Start generating all <em>paths</em>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#run(name:Symbol)-instance-method" class="signature"><strong>#run</strong>(name : Symbol)</a>
+        <a href="#run(name:CommandName)-instance-method" class="signature"><strong>#run</strong>(name : CommandName)</a>
         
           <div class="summary"><p>Start running command of given <em>name</em>.</p></div>
         
@@ -277,7 +287,7 @@
 <p>The block takes <code><a href="Make/Tasks.html">Tasks</a></code> as an argument:</p>
 
 <pre><code class="language-crystal"><span class="t">Make</span>.<span class="k">new</span> <span class="k">do</span> <span class="o">|</span>a<span class="o">|</span>
-  a.command <span class="n">:hello</span> <span class="k">do</span>
+  a.command <span class="n">:hello</span> <span class="k">do</span> <span class="o">|</span>t<span class="o">|</span>
     puts <span class="n">:world</span>
   <span class="k">end</span>
 <span class="k">end</span>.run(<span class="n">:hello</span>)</code></pre>
@@ -286,7 +296,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/ac5a8908c36f3f1d9aa923b2e2ade06a61f8e829/src/make.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/694c12afd20209e3c0ec124f36da2290ba93f312/src/make.cr#L17" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -321,38 +331,40 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/ac5a8908c36f3f1d9aa923b2e2ade06a61f8e829/src/make.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/694c12afd20209e3c0ec124f36da2290ba93f312/src/make.cr#L29" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="run(paths:Array(PathLike|Array(PathLike)))-instance-method">
+    <div class="entry-detail" id="run(paths:PathsLike)-instance-method">
       <div class="signature">
         
-        def <strong>run</strong>(paths : Array(<a href="Make/PathLike.html">PathLike</a> | Array(<a href="Make/PathLike.html">PathLike</a>)))
+        def <strong>run</strong>(paths : <a href="Make/PathsLike.html">PathsLike</a>)
 
-        <a class="method-permalink" href="#run(paths:Array(PathLike%7CArray(PathLike)))-instance-method">#</a>
+        <a class="method-permalink" href="#run(paths:PathsLike)-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Start generating all <em>paths</em>.</p>
+          <p>Start generating all <em>paths</em>.
+The order of running target <em>paths</em> is not significant to program.
+Currently the order is sequencial but can be non-significant (e.g. parallel) in future.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/ac5a8908c36f3f1d9aa923b2e2ade06a61f8e829/src/make.cr#L30" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/694c12afd20209e3c0ec124f36da2290ba93f312/src/make.cr#L36" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="run(name:Symbol)-instance-method">
+    <div class="entry-detail" id="run(name:CommandName)-instance-method">
       <div class="signature">
         
-        def <strong>run</strong>(name : Symbol)
+        def <strong>run</strong>(name : <a href="Make/CommandName.html">CommandName</a>)
 
-        <a class="method-permalink" href="#run(name:Symbol)-instance-method">#</a>
+        <a class="method-permalink" href="#run(name:CommandName)-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -363,7 +375,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/gemmaro/crystal-make/blob/ac5a8908c36f3f1d9aa923b2e2ade06a61f8e829/src/make.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/gemmaro/crystal-make/blob/694c12afd20209e3c0ec124f36da2290ba93f312/src/make.cr#L45" target="_blank">View source</a>]
         
       </div>
     </div>
