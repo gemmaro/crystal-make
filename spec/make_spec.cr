@@ -1,10 +1,12 @@
 require "./spec_helper"
 
+fixtures_root = Path.new(__DIR__) / "fixtures"
+
 describe Make do
   describe Make::Tasks do
     describe "file" do
       it "Make#run can take String (which can become Path) as argument" do
-        path_string = (Path.new(__DIR__) / "fixtures/aaa.txt").to_s
+        path_string = (fixtures_root / "aaa.txt").to_s
 
         Make.new do |a|
           a.file path_string do
@@ -13,8 +15,8 @@ describe Make do
       end
 
       it "generates *path* if it is older than *sources*" do
-        aaa_path = Path.new(__DIR__) / "fixtures/aaa.txt"
-        bbb_path = Path.new(__DIR__) / "fixtures/bbb.txt"
+        aaa_path = fixtures_root / "aaa.txt"
+        bbb_path = fixtures_root / "bbb.txt"
 
         File.touch(aaa_path)
         File.touch(bbb_path)
@@ -32,8 +34,8 @@ describe Make do
       end
 
       it "doesn't generate *path* if it is newer than *sources*" do
-        aaa_path = Path.new(__DIR__) / "fixtures/aaa.txt"
-        bbb_path = Path.new(__DIR__) / "fixtures/bbb.txt"
+        aaa_path = fixtures_root / "aaa.txt"
+        bbb_path = fixtures_root / "bbb.txt"
 
         File.touch(bbb_path)
         File.touch(aaa_path)
@@ -74,19 +76,19 @@ describe Make do
 
         Make.new do |a|
           a.command :aaa, [:bbb,
-                           (Path.new(__DIR__) / "fixtures/aaa.txt").to_s,
-                           Path.new(__DIR__) / "fixtures/bbb.txt",
+                           (fixtures_root / "aaa.txt").to_s,
+                           fixtures_root / "bbb.txt",
                            [:ccc,
-                            (Path.new(__DIR__) / "fixtures/ccc.txt").to_s,
-                            Path.new(__DIR__) / "fixtures/ddd.txt"]] do
+                            (fixtures_root / "ccc.txt").to_s,
+                            fixtures_root / "ddd.txt"]] do
             counter += 1
           end
 
-          a.command(:bbb, (Path.new(__DIR__) / "fixtures/eee.txt").to_s) do
+          a.command(:bbb, (fixtures_root / "eee.txt").to_s) do
             counter += 10
           end
 
-          a.command :ccc, Path.new(__DIR__) / "fixtures/fff.txt" do
+          a.command :ccc, fixtures_root / "fff.txt" do
             counter += 100
           end
         end.run(:aaa)
