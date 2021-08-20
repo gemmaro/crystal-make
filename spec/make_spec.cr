@@ -44,6 +44,15 @@ describe Make do
 
         counter.should eq 111
       end
+
+      it "Make#run can take String (which can become Path) as argument" do
+        path_string = (Path.new(__DIR__) / "fixtures/aaa.txt").to_s
+
+        Make.new do |a|
+          a.file path_string do
+          end
+        end.run(path_string)
+      end
     end
   end
 end

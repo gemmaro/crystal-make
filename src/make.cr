@@ -27,7 +27,7 @@ class Make
 
   # Start generating *path*.
   def run(path : PathLike)
-    @tasks.run(path)
+    @tasks.run(Path.new(path))
   end
 
   # Start generating all *paths*.
