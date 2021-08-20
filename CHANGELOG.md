@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- `NotUpdatedError` error type.
+
+### Fixed
+
+- Version number on `shard.yml`
+- `Tasks#file` run *action* if *path*'s modification time is not newer than all sources' one.
+
 ## 0.2.0 - 2021-08-15
 
 ### Added

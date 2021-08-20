@@ -54,6 +54,8 @@ class Make
 
   class NotGeneratedError < Error; end
 
+  class NotUpdatedError < Error; end
+
   class Flow
     getter target : Path
     getter sources : Array(Path)
@@ -191,18 +193,31 @@ class Make
       end
     end
 
+    # If *path* is needed to be generated without any sources and action,
+    # the path must be exist already.
+    # This method assert that.
     private def generate(path : Path)
       raise PathNotFoundError.new(path.to_s) unless File.exists?(path)
     end
 
+    # Generate *path* with action (*block*) if it is not exist yet.
+    # First *sources* will be prepared.
+    # It will raises error if it is not generated eventually.
+    #
+    # This method takes block as argument, and simply call lambda version.
     private def generate(path : Path, sources : Array(Path), &block : Flow ->)
       generate(path, sources, block)
     end
 
+    # Generate *path* with *action* if it is not exist yet.
+    # Do nothing if file of *path* exists or all *sources* is older than *path*.
+    # First, the *sources* will be prepared.
+    # Raise `NotGeneratedError` if it is not generated eventually.
     private def generate(path : Path, sources : Array(Path), action)
-      return if File.exists?(path)
+      return if File.exists?(path) && (sources.empty? || File.open(path).info.modification_time > sources.map { |source| File.open(source).info.modification_time }.max)
       action.call(Flow.new(path, sources))
       raise NotGeneratedError.new(path.to_s) unless File.exists?(path)
+      raise NotUpdatedError.new(path.to_s) unless sources.empty? || File.open(path).info.modification_time > sources.map { |source| File.open(source).info.modification_time }.max
     end
   end
 end
